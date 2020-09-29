@@ -16,111 +16,76 @@ public class AudioVisual {
     private String series;
     private String summary;
     private String imageSrc;
+    private String audioSrc;
+    private String videoSrc;
     private long dateCreated;
     private int duration;
-    private int size;
-    private boolean audio;
-    private boolean video;
+    private int audioSize;
+    private int videoSize;
 
-    public AudioVisual(String speaker, String title, String series, String summary, String imageSrc, long dateCreated, int duration,
-                       int size, boolean audio, boolean video) {
+    public AudioVisual(String speaker, String title, String series, String summary, String imageSrc, String audioSrc, String videoSrc, long dateCreated, int duration, int audioSize, int videoSize) {
         this.speaker = speaker;
         this.title = title;
         this.series = series;
         this.summary = summary;
         this.imageSrc = imageSrc;
+        this.audioSrc = audioSrc;
+        this.videoSrc = videoSrc;
         this.dateCreated = dateCreated;
         this.duration = duration;
-        this.size = size;
-        this.audio = audio;
-        this.video = video;
-    }
-
-    public int getId() {
-        return id;
+        this.audioSize = audioSize;
+        this.videoSize = videoSize;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public String getSpeaker() {
-        return speaker;
+    public int getId() {
+        return id;
     }
 
-    public void setSpeaker(String speaker) {
-        this.speaker = speaker;
+    public String getSpeaker() {
+        return speaker;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getSeries() {
         return series;
-    }
-
-    public void setSeries(String series) {
-        this.series = series;
     }
 
     public String getSummary() {
         return summary;
     }
 
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
     public String getImageSrc() {
         return imageSrc;
     }
 
-    public void setImageSrc(String imageSrc) {
-        this.imageSrc = imageSrc;
+    public String getAudioSrc() {
+        return audioSrc;
+    }
+
+    public String getVideoSrc() {
+        return videoSrc;
     }
 
     public long getDateCreated() {
         return dateCreated;
     }
 
-    public void setDateCreated(long dateCreated) {
-        this.dateCreated = dateCreated;
-    }
-
     public int getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
-        this.duration = duration;
+    public int getAudioSize() {
+        return audioSize;
     }
 
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public boolean isAudio() {
-        return audio;
-    }
-
-    public void setAudio(boolean audio) {
-        this.audio = audio;
-    }
-
-    public boolean isVideo() {
-        return video;
-    }
-
-    public void setVideo(boolean video) {
-        this.video = video;
+    public int getVideoSize() {
+        return videoSize;
     }
 }

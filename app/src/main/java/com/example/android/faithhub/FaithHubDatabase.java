@@ -12,7 +12,7 @@ import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 
-@Database(entities = {AudioVisual.class, Publication.class}, version = 3, exportSchema = true)
+@Database(entities = {AudioVisual.class, Publication.class}, version = 4, exportSchema = false)
 public abstract class FaithHubDatabase extends RoomDatabase {
 
     public abstract AudioVisualDao audioVisualDao();
@@ -24,10 +24,10 @@ public abstract class FaithHubDatabase extends RoomDatabase {
         if (INSTANCE == null) {
             synchronized (FaithHubDatabase.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            FaithHubDatabase.class, "faithhub_database")
-                            //.addCallback(sRoomDatabaseCallback)
-                            .addMigrations(MIGRATION_2_3)
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), FaithHubDatabase.class, "faithhub_database")
+                            .addCallback(sRoomDatabaseCallback)
+                            .fallbackToDestructiveMigration()
+                            //.addMigrations(MIGRATION_2_3)
                             .build();
                 }
             }
@@ -82,14 +82,17 @@ public abstract class FaithHubDatabase extends RoomDatabase {
             mPublicationDao.insertPublication(publication3);
 
             AudioVisual audioVisual1 = new AudioVisual("Kenneth Copeland", "The Believer's Authority - part 1", "The Believer's Authority",
-                    "It is all Victory ...", "source1", 100l, 22, 13, false, true);
+                    "It is all Victory ...", "source1", "source2", "source3", 100l, 22, 13, 54);
             mAudioVisualDao.insertAudioVisual(audioVisual1);
-            AudioVisual audioVisual2 = new AudioVisual("Kenneth Copeland", "The Believer's Authority - part 1", "The Believer's Authority",
-                    "It is all Victory ...", "source1", 100l, 44, 24, false, true);
+
+            AudioVisual audioVisual2 = new AudioVisual("Kenneth Copeland", "The Believer's Authority - part 2", "The Believer's Authority",
+                    "It is all Victory ...", "source1", "source2", "source3", 100l, 22, 13, 54);
             mAudioVisualDao.insertAudioVisual(audioVisual2);
-            AudioVisual audioVisual3 = new AudioVisual("Kenneth Copeland", "The Believer's Authority - part 1", "The Believer's Authority",
-                    "It is all Victory ...", "source1", 100l, 66, 30, false, true);
+
+            AudioVisual audioVisual3 = new AudioVisual("Kenneth Copeland", "The Believer's Authority - part 3", "The Believer's Authority",
+                    "It is all Victory ...", "source1", "source2", "source3", 100l, 22, 13, 54);
             mAudioVisualDao.insertAudioVisual(audioVisual3);
+
 
             return null;
         }

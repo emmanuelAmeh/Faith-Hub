@@ -14,6 +14,7 @@ public class FaithHubViewModel extends AndroidViewModel {
     private LiveData<List<AudioVisual>> mAllAudioVisuals;
     private LiveData<List<Publication>> mAllPublications;
     private LiveData<PagedList<Publication>> publicationList;
+    private LiveData<PagedList<AudioVisual>> audioVisualList;
 
     public FaithHubViewModel(@NonNull Application application) {
         super(application);
@@ -21,11 +22,14 @@ public class FaithHubViewModel extends AndroidViewModel {
         mAllAudioVisuals = mFaithHubRepository.getAllAudioVisuals();
         mAllPublications = mFaithHubRepository.getAllPublications();
         publicationList = mFaithHubRepository.getPublicationList();
+        audioVisualList = mFaithHubRepository.getAudioVisualList();
     }
 
-    public LiveData<PagedList<Publication>> getPublicationList(){
+    public LiveData<PagedList<Publication>> getPublicationList() {
         return publicationList;
     }
 
-
+    public LiveData<PagedList<AudioVisual>> getAudioVisualList() {
+        return audioVisualList;
+    }
 }

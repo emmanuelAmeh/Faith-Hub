@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/iv_av_clipart"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="#F8F4E7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/tv_av_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Title of Message - part 1"
+        app:layout_constraintStart_toEndOf="@+id/iv_av_clipart"
+        app:layout_constraintTop_toTopOf="@+id/iv_av_clipart" />
+
+    <TextView
+        android:id="@+id/tv_av_release_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_av_clipart"
+        app:layout_constraintStart_toEndOf="@+id/iv_av_clipart" />
+
+    <ImageView
+        android:id="@+id/iv_options_button"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_av_size"
+        app:layout_constraintStart_toStartOf="@+id/tv_av_size"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/options_icon" />
+
+    <TextView
+        android:id="@+id/tv_av_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@color/colorAccent"
+        android:padding="4dp"
+        android:text="999 mb"
+        android:textAlignment="textEnd"
+        android:textColor="@color/design_default_color_background"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_av_release_date"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_download_audiovisual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:layout_constraintEnd_toStartOf="@+id/iv_options_button"
+        app:layout_constraintTop_toTopOf="@+id/iv_options_button"
+        app:srcCompat="@drawable/ic_outline_arrow_downward_24" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

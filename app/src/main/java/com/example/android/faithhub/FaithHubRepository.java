@@ -17,7 +17,8 @@ public class FaithHubRepository {
     private LiveData<List<AudioVisual>> mAllAudioVisuals;
     private LiveData<List<Publication>> mAllPublications;
 
-    public  LiveData<PagedList<Publication>> publicationList;
+    public LiveData<PagedList<Publication>> publicationList;
+    public LiveData<PagedList<AudioVisual>> audioVisualList;
 
     public FaithHubRepository(Application application) {
         FaithHubDatabase db = FaithHubDatabase.getDatabase(application);
@@ -31,27 +32,36 @@ public class FaithHubRepository {
         publicationList = new LivePagedListBuilder<>(
                 mPublicationDao.getPublicationById(), 50)
                 .build();
+
+        audioVisualList = new LivePagedListBuilder<>(
+                mAudioVisualDao.getPagedAudioVisualById(), 50)
+                .build();
     }
 
-    LiveData<List<AudioVisual>> getAllAudioVisuals(){
+    LiveData<List<AudioVisual>> getAllAudioVisuals() {
         return mAllAudioVisuals;
     }
-    LiveData<List<Publication>> getAllPublications(){
+
+    LiveData<List<Publication>> getAllPublications() {
         return mAllPublications;
     }
 
-    LiveData<PagedList<Publication>> getPublicationList(){
+    LiveData<PagedList<Publication>> getPublicationList() {
         return publicationList;
     }
 
+    LiveData<PagedList<AudioVisual>> getAudioVisualList() {
+        return audioVisualList;
+    }
 
-    public void insertAudioVisual (AudioVisual audioVisual) {
+
+    public void insertAudioVisual(AudioVisual audioVisual) {
         new insertAudioVisualAsyncTask(mAudioVisualDao).execute(audioVisual);
     }
 
     private static class insertAudioVisualAsyncTask extends AsyncTask<AudioVisual, Void, Void> {
 
-        private AudioVisualDao  mAsyncTaskDao;
+        private AudioVisualDao mAsyncTaskDao;
 
         insertAudioVisualAsyncTask(AudioVisualDao dao) {
             mAsyncTaskDao = dao;

@@ -25,7 +25,7 @@ public interface AudioVisualDao {
     void updateAudioVisual (AudioVisual audioVisual);
 
     @Delete
-    void deleteAudioVisual (AudioVisual audioVisual);
+    void deleteAudioVisual(AudioVisual audioVisual);
 
     @Query("DELETE FROM audiovisual_table")
     void deleteAllAudioVisuals();
@@ -35,4 +35,7 @@ public interface AudioVisualDao {
 
     @Query("SELECT * FROM audiovisual_table ORDER BY id ASC")
     DataSource.Factory<Integer, AudioVisual> getAudioVisualById();
+
+    @Query("SELECT * FROM audiovisual_table ORDER BY id ASC")
+    DataSource.Factory<Integer, AudioVisual> getPagedAudioVisualById();
 }
